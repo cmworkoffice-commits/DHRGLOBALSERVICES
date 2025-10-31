@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHR Global Entertainment Limited - Premier Event Management in Hong Kong</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Logo SVG */
+        .logo {
+            width: 200px;
+            height: 80px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 2rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section with Slider */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+        .hero-slides {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+        .hero-slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(0,0,0,0.5);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #ffd700;
+            color: #333;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #ffed4e;
+        }
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            cursor: pointer;
+        }
+        .active {
+            background-color: #717171;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+
+        /* About */
+        .about {
+            background: white;
+        }
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .about-text p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: #f8f9fa;
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .why-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .why-card:hover {
+            transform: translateY(-10px);
+        }
+        .why-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+
+        /* Our Process */
+        .process {
+            background: white;
+        }
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .step {
+            flex: 1;
+            min-width: 250px;
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .step img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .step-number {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        /* Services */
+        .services {
+            background: #f8f9fa;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        /* Case Studies */
+        .case-studies {
+            background: white;
+        }
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .case-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .case-card:hover {
+            transform: translateY(-5px);
+        }
+        .case-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        /* Venues */
+        .venues {
+            background: #f8f9fa;
+        }
+        .venues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .venue-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .venue-card:hover {
+            transform: translateY(-10px);
+        }
+        .venue-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        /* Upcoming Events */
+        .events {
+            background: white;
+        }
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .event-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+        .event-badge {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .event-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        /* Blog */
+        .blog {
+            background: #f8f9fa;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        /* Gallery */
+        .gallery {
+            background: white;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Sustainability */
+        .sustainability {
+            background: #f8f9fa;
+        }
+        .sustainability-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .sustainability-text p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        .sustainability-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* FAQ */
+        .faq {
+            background: white;
+        }
+        .faq-item {
+            background: #f8f9fa;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            display: none;
+        }
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        .newsletter form {
+            display: flex;
+            max-width: 500px;
+            margin: 2rem auto;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .newsletter input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            min-width: 250px;
+        }
+        .newsletter button {
+            background: #ffd700;
+            color: #333;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Contact */
+        .contact {
+            background: #f8f9fa;
+        }
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea, select {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #5a67d8;
+        }
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+        .contact-info p {
+            margin-bottom: 1rem;
+        }
+        #map {
+            height: 300px;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .social-links {
+            margin: 1rem 0;
+        }
+        .social-links a {
+            color: white;
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Back to Top */
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            transition: opacity 0.3s;
+        }
+        #backToTop:hover {
+            background: #5a67d8;
+        }
+
+        /* Modal for Images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            max-height: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #667eea;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            nav ul.active {
+                display: flex;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .about-content, .contact-content, .sustainability-content {
+                grid-template-columns: 1fr;
+            }
+            .process-steps {
+                flex-direction: column;
+            }
+            .newsletter form {
+                flex-direction: column;
+            }
+            .newsletter input {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <!-- SVG Logo -->
+                <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="200" height="80" fill="url(#grad1)" rx="10" ry="10"/>
+                    <text x="20" y="50" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">DHR Global</text>
+                    <text x="20" y="70" font-family="Arial, sans-serif" font-size="12" fill="white">Entertainment Limited</text>
+                    <circle cx="170" cy="40" r="20" fill="#ffd700" stroke="white" stroke-width="2"/>
+                    <text x="165" y="45" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">HK</text>
+                </svg>
+            </div>
+            <ul id="navUl">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#why-choose">Why Choose Us</a></li>
+                <li><a href="#process">Our Process</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#venues">Venues</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#sustainability">Sustainability</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Slider -->
+    <section id="home" class="hero">
+        <div class="hero-slides">
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1517457373958-b7bdd4587201?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1522071820081-5a05c00e2c6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div> <!-- Corporate -->
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7c86b17c62?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div> <!-- Conference -->
+        </div>
+        <div class="hero-content">
+            <h1>Welcome to DHR Global Entertainment Limited</h1>
+            <p>Your Premier Event Management Partner in Hong Kong, Specializing in Corporate Events</p>
+            <a href="#contact" class="btn">Get a Quote</a>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Established in the heart of Hong Kong, DHR Global Entertainment Limited is a leading event management company dedicated to creating unforgettable corporate experiences. With over 10 years of expertise, we specialize in corporate events, conferences, team-building, and product launches tailored to the dynamic business landscape of Hong Kong.</p>
+                    <p>Our professionals handle everything from strategy to execution, ensuring seamless events that boost brand visibility and foster connections. We emphasize innovation, sustainability, and ROI-driven results for our corporate clients.</p>
+                    <p>Based at 123 Queen's Road Central, Hong Kong, we partner with top venues and vendors to deliver excellence across Asia.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-5a05c00e2c6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Corporate Meeting">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-choose" class="why-choose">
+        <div class="container">
+            <h2>Why Choose Us for Your Corporate Events</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&q=80" alt="Expertise Icon">
+                    <h3>Industry Expertise</h3>
+                    <p>Years of experience in managing high-profile corporate events in Hong Kong.</p>
+                </div>
+                <div class="why-card">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&q=80" alt="Custom Solutions">
+                    <h3>Customized Solutions</h3>
+                    <p>Tailored strategies to meet your business goals and budget.</p>
+                </div>
+                <div class="why-card">
+                    <img src="https://images.unsplash.com/photo-1523961131540-09f723b7e1c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&q=80" alt="Network">
+                    <h3>Extensive Network</h3>
+                    <p>Partnerships with premier venues, speakers, and tech providers.</p>
+                </div>
+                <div class="why-card">
+                    <img src="https://images.unsplash.com/photo-1516321497487-6f3b693f88b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&q=80" alt="Sustainability">
+                    <h3>Sustainable Practices</h3>
+                    <p>Eco-friendly event planning to align with corporate responsibility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section id="process" class="process">
+        <div class="container">
+            <h2>Our Event Management Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Consultation">
+                    <h3>Consultation & Planning</h3>
+                    <p>We discuss your objectives and create a detailed plan.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Venue Selection">
+                    <h3>Venue & Vendor Selection</h3>
+                    <p>Choose the perfect location and partners for your event.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <img src="https://images.unsplash.com/photo-1523961131540-09f723b7e1c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Execution">
+                    <h3>Execution & Management</h3>
+                    <p>Flawless on-site coordination and problem-solving.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Review">
+                    <h3>Post-Event Review</h3>
+                    <p>Feedback and analysis to measure success and improve.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Corporate Event Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1522071820081-5a05c00e2c6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate Conferences">
+                    <h3>Corporate Conferences</h3>
+                    <p>Organize impactful conferences with keynote speakers and networking sessions.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7c86b17c62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Team Building">
+                    <h3>Team Building Activities</h3>
+                    <p>Engaging activities to boost morale and collaboration in corporate teams.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Product Launches">
+                    <h3>Product Launches</h3>
+                    <p>High-impact launches to introduce products to stakeholders and media.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Executive Retreats">
+                    <h3>Executive Retreats</h3>
+                    <p>Luxury retreats for strategic planning and leadership development.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1516321497487-6f3b693f88b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Virtual Corporate Events">
+                    <h3>Virtual & Hybrid Events</h3>
+                    <p>Seamless online or hybrid solutions for global corporate audiences.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Awards Ceremonies">
+                    <h3>Awards Ceremonies</h3>
+                    <p>Celebrate achievements with elegant corporate award events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="case-studies" class="case-studies">
+        <div class="container">
+            <h2>Corporate Event Case Studies</h2>
+            <div class="case-grid">
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1522071820081-5a05c00e2c6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Tech Conference">
+                    <h3>Annual Tech Conference for HK Startups</h3>
+                    <p>Hosted 500+ attendees with interactive sessions and networking, resulting in 20% business growth for participants.</p>
+                    <a href="#" class="btn">Read Full Case</a>
+                </div>
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7c86b17c62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate Retreat">
+                    <h3>Executive Retreat in Lantau Island</h3>
+                    <p>Strategic planning event for C-level executives, focusing on team alignment and innovation.</p>
+                    <a href="#" class="btn">Read Full Case</a>
+                </div>
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Product Launch">
+                    <h3>Global Product Launch Event</h3>
+                    <p>Launched a new tech product with media coverage and live demos, achieving 150% ROI.</p>
+                    <a href="#" class="btn">Read Full Case</a>
+                </div>
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Team Building">
+                    <h3>Corporate Team Building Day</h3>
+                    <p>Outdoor activities and workshops to enhance collaboration among 200 employees.</p>
+                    <a href="#" class="btn">Read Full Case</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venues -->
+    <section id="venues" class="venues">
+        <div class="container">
+            <h2>Premier Corporate Venues in Hong Kong</h2>
+            <div class="venues-grid">
+                <div class="venue-card">
+                    <img src="https://images.unsplash.com/photo-1516321497487-6f3b693f88b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Hong Kong Convention Centre">
+                    <h3>Hong Kong Convention & Exhibition Centre</h3>
+                    <p>Ideal for large-scale conferences and exhibitions.</p>
+                </div>
+                <div class="venue-card">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Victoria Harbour View">
+                    <h3>Harbour Grand Kowloon</h3>
+                    <p>Stunning views for executive meetings and retreats.</p>
+                </div>
+                <div class="venue-card">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Central Business District">
+                    <h3>The Upper House</h3>
+                    <p>Luxury space for intimate corporate gatherings.</p>
+                </div>
+                <div class="venue-card">
+                    <img src="https://images.unsplash.com/photo-1523961131540-09f723b7e1c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Lantau Island">
+                    <h3>Lantau Island Resorts</h3>
+                    <p>Perfect for team-building and off-site events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section id="events" class="events">
+        <div class="container">
+            <h2>Upcoming Corporate Events</h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <img src="https://images.unsplash.com/photo-1522071820081-5a05c00e2c6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Tech Summit">
+                    <div class="event-badge">Coming Soon</div>
+                    <h3>Hong Kong Tech Summit</h3>
+                    <p>Innovative discussions for business leaders at the Convention Centre.</p>
+                    <a href="#" class="btn">RSVP</a>
+                </div>
+                <div class="event-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7c86b17c62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Business Expo">
+                    <div class="event-badge">Coming Soon</div>
+                    <h3>Business Innovation Expo</h3>
+                    <p>Showcasing latest trends in corporate strategy.</p>
+                    <a href="#" class="btn">Register</a>
+                </div>
+                <div class="event-card">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Leadership Gala">
+                    <div class="event-badge">Coming Soon</div>
+                    <h3>Leadership Awards Gala</h3>
+                    <p>Celebrating top corporate achievers in Hong Kong.</p>
+                    <a href="#" class="btn">Tickets</a>
+                </div>
+                <div class="event-card">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Networking Event">
+                    <div class="event-badge">Coming Soon</div>
+                    <h3>Corporate Networking Mixer</h3>
+                    <p>Connect with industry peers in a relaxed setting.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2>Latest Corporate Insights</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1522071820081-5a05c00e2c6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Event Trends">
+                    <div class="blog-content">
+                        <h3>Top Corporate Event Trends in Hong Kong</h3>
+                        <p>Explore innovations like hybrid models and AI integration...</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7c86b17c62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sustainable Events">
+                    <div class="blog-content">
+                        <h3>Sustainable Corporate Event Planning</h3>
+                        <p>Tips for eco-friendly business gatherings...</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Virtual Reality">
+                    <div class="blog-content">
+                        <h3>VR in Corporate Training Events</h3>
+                        <p>Enhancing engagement through immersive tech...</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="ROI Measurement">
+                    <div class="blog-content">
+                        <h3>Measuring ROI for Corporate Events</h3>
+                        <p>Strategies to quantify event success...</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Corporate Event Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522071820081-5a05c00e2c6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 1" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7c86b17c62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 2" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 3" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 4" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516321497487-6f3b693f88b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 5" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 6" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1523961131540-09f723b7e1c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 7" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 8" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 9" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1533177438047-8fd7aa0d6e8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 10" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 11" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571019612991-88c908dc20b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 12" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 13" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 14" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 15" onclick="openModal(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519452634764-6815e3f23c0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate 16" onclick="openModal(this.src)">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability -->
+    <section id="sustainability" class="sustainability">
+        <div class="container">
+            <h2>Our Commitment to Sustainable Corporate Events</h2>
+            <div class="sustainability-content">
+                <div class="sustainability-text">
+                    <p>At DHR Global, we integrate sustainability into every corporate event. From reducing waste with digital invitations to partnering with eco-friendly venues, we help your business meet CSR goals.</p>
+                    <p>Our approaches include carbon-neutral planning, recyclable materials, and virtual options to minimize travel emissions. Join us in creating responsible, impactful events.</p>
+                    <p>Contact us to learn how we can make your next corporate event green.</p>
+                </div>
+                <div class="sustainability-image">
+                    <img src="https://images.unsplash.com/photo-1516321497487-6f3b693f88b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Sustainable Event">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What corporate events do you specialize in?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We handle conferences, team-building, launches, retreats, and more.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How do you ensure event success?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Through detailed planning, experienced staff, and post-event analytics.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can you handle virtual corporate events?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer full virtual and hybrid solutions with advanced tech.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What is your approach to sustainability?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We prioritize eco-friendly practices to reduce environmental impact.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How much does a corporate event cost?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Costs vary; we provide customized quotes based on your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay Updated on Corporate Events</h2>
+            <p>Subscribe for tips, trends, and exclusive offers on business events.</p>
+            <form id="newsletterForm">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us for Your Next Corporate Event</h2>
+            <div class="contact-content">
+                <form id="contactForm">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="tel" placeholder="Your Phone">
+                    <select required>
+                        <option value="">Event Type</option>
+                        <option value="conference">Conference</option>
+                        <option value="team-building">Team Building</option>
+                        <option value="launch">Product Launch</option>
+                        <option value="retreat">Executive Retreat</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <textarea rows="5" placeholder="Describe Your Event" required></textarea>
+                    <button type="submit">Send Inquiry</button>
+                </form>
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p><strong>Address:</strong> 123 Queen's Road Central, Central, Hong Kong</p>
+                    <p><strong>Phone:</strong> +852 1234 5678</p>
+                    <p><strong>Email:</strong> info@dhrglobal.com</p>
+                    <p><strong>Business Hours:</strong> Mon-Fri: 9AM-6PM | Sat: 10AM-4PM</p>
+                    <div id="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3213.6789999999997!2d114.158!3d22.282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404001100000001%3A0x6e9f8b8b8b8b8b8b!2sQueen's%20Road%20Central!5e0!3m2!1sen!2shk!4v1630000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DHR Global Entertainment Limited. All rights reserved. | Hong Kong</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="LinkedIn">💼</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <div id="backToTop" onclick="scrollToTop()">↑</div>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Mobile Nav Toggle
+        function toggleNav() {
+            const ul = document.getElementById('navUl');
+            ul.classList.toggle('active');
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Hero Slider
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        function showSlides(n) {
+            let slides = document.querySelectorAll('.hero-slide');
+            let dots = document.querySelectorAll('.dot');
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            slides.forEach(slide => slide.style.transform = `translateX(${(slideIndex - 1) * -100}%)`);
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[slideIndex - 1].classList.add('active');
+        }
+        setInterval(() => {
+            slideIndex++;
+            showSlides(slideIndex);
+        }, 5000);
+
+        // Gallery Modal
+        function openModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = src;
+        }
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('span:last-child');
+            answer.classList.toggle('active');
+            icon.textContent = answer.classList.contains('active') ? '-' : '+';
+        }
+
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (this.checkValidity()) {
+                alert('Thank you for your inquiry! We will respond soon.');
+                this.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        // Newsletter
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing!');
+            this.reset();
+        });
+
+        // Event Buttons (Mock)
+        document.querySelectorAll('.event-card .btn, .case-card .btn, .blog-card .btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Action received! (Demo mode)');
+            });
+        });
+
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        };
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
