@@ -1,0 +1,44 @@
+# GitHub Pages Configuration
+# DHR Global Services – dhrglobalservices.com
+
+title: "DHR Global Services"
+description: "BrightWave Campaign 2026 – Premier Digital Advertising & Brand Promotion Event, 18–24 May 2026, Aurora Pulse Studio Complex, Singapore"
+url: "https://www.dhrglobalservices.com"
+baseurl: ""
+
+# SEO
+lang: en
+timezone: Asia/Singapore
+
+# GitHub Pages settings
+theme: null
+plugins: []
+
+# Exclude from build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Include important files
+include:
+  - robots.txt
+  - sitemap.xml
+  - CNAME
+  - BrightWave_Campaign_2026.png
+
+# Author
+author:
+  name: "DHR Global Services"
+  url: "https://www.dhrglobalservices.com"
+
+# Social
+social:
+  name: "DHR Global Services"
+  links:
+    - https://www.dhrglobalservices.com
+
+# Google Analytics placeholder (add your GA4 ID)
+google_analytics: "G-XXXXXXXXXX"

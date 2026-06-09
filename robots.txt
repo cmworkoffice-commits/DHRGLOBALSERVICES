@@ -1,0 +1,54 @@
+# robots.txt for DHR Global Entertainment Limited
+# BrightWave Campaign 2026 – Digital Advertising & Brand Promotion Event
+
+User-agent: *
+Allow: /
+Allow: /brightwave-campaign-2026
+Allow: /BrightWave_Campaign_2026.png
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Crawl-delay: 1
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Google Image Bot
+User-agent: Googlebot-Image
+Allow: /BrightWave_Campaign_2026.png
+Allow: /images/
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# AI crawlers – allow for AI SEO (ChatGPT, Perplexity, Claude)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.dhrglobalservices.com/sitemap.xml
